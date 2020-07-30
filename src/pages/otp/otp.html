@@ -30,7 +30,18 @@
 
     </ion-list>
   </form>
-  <div padding>
+  <!-- <div padding>
     <button ion-button color="primary" block (click)="onResend()">Resend</button>
-  </div>
+  </div> -->
+
+  <ion-row *ngIf="currentOTPCountDown === optExpiry">
+    <ion-col col-8 (click)="onResend()">
+    <a href="#">Resend OTP?</a>
+    </ion-col>
+  </ion-row>
+  <ion-row *ngIf="currentOTPCountDown < optExpiry">
+    <ion-col col-8 >
+      OTP expires in <span style="color:red">{{currentOTPCountDown}}</span> seconds
+    </ion-col>
+  </ion-row>
 </ion-content>

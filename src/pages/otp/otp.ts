@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams , ToastController} from 'ionic-angular';
+import { NavController, NavParams , ToastController} from 'ionic-angular';
+import { timer } from 'rxjs/observable/timer';
 
 import { PasswordPage } from '../password/password';
 
@@ -18,6 +19,10 @@ import { PasswordPage } from '../password/password';
 export class OtpPage {
 
   otp:string;
+
+  optExpiry = 31;// 30 sectonds OTP expiry
+
+  currentOTPCountDown:number;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public toastCtrl: ToastController) {
@@ -51,5 +56,20 @@ export class OtpPage {
     });
     toast.present();
   }
+
+  startOTPCountDown() {
+    timer(0, 1000)
+     .take(this.optExpiry)
+     .subscribe(i => {
+        //console.log(i);
+        this.currentOTPCountDown = this.optExpiry - i;
+
+        },
+        undefined, //no error expected
+        ()=>{ // once count down completed reset the count down value
+            this.currentOTPCountDown = this.optExpiry;
+        }
+    );
+}
 
 }
