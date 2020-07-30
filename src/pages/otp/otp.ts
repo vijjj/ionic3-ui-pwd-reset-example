@@ -26,6 +26,9 @@ export class OtpPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public toastCtrl: ToastController) {
+
+      this.currentOTPCountDown = this.optExpiry;
+      this.startOTPCountDown();
   }
 
   ionViewDidLoad() {
