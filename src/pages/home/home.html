@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h3>Welcome to Password Reset</h3>
+
+  <p>
+    Your employee number and National Indentification Number are required
+  </p>
+  <p>
+    On successfull validation of the above, an OTP will be sent to your mobile number
+  </p>
+
+  <div padding>
+    <button ion-button color="primary" block (click)="onReset()">Reset</button>
+  </div>
+</ion-content>

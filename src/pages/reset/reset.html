@@ -1,0 +1,40 @@
+
+
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Reset Password</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <form (submit)="doReset()">
+    <ion-list>
+
+      <ion-item>
+        <ion-label fixed>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="account.name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>Employee Id</ion-label>
+        <ion-input type="text" [(ngModel)]="account.empId" name="id"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label fixed>NIN</ion-label>
+        <ion-input type="numeric" [(ngModel)]="account.nin" name="nin"></ion-input>
+      </ion-item>
+
+
+      <div padding>
+        <button ion-button color="primary" block>Reset Password</button>
+      </div>
+
+    </ion-list>
+  </form>
+</ion-content>
+
